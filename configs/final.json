@@ -1,0 +1,50 @@
+{
+  "feature_width": 2450,
+  "feature_blocks": [
+    {
+      "name": "siglip2_image",
+      "start": 0,
+      "stop": 1024,
+      "dim": 1024,
+      "model": "google/siglip2-large-patch16-384"
+    },
+    {
+      "name": "siglip2_text",
+      "start": 1024,
+      "stop": 2048,
+      "dim": 1024,
+      "model": "google/siglip2-large-patch16-384"
+    },
+    {
+      "name": "siglip2_cosine",
+      "start": 2048,
+      "stop": 2049,
+      "dim": 1
+    },
+    {
+      "name": "minilm_text",
+      "start": 2049,
+      "stop": 2433,
+      "dim": 384,
+      "model": "sentence-transformers/all-MiniLM-L6-v2"
+    },
+    {
+      "name": "catalogue",
+      "start": 2433,
+      "stop": 2450,
+      "dim": 17
+    }
+  ],
+  "model_order": [
+    "lightgbm",
+    "xgboost",
+    "catboost",
+    "mlp"
+  ],
+  "training": {
+    "n_splits": 5,
+    "random_state": 42,
+    "target_transform": "log1p",
+    "min_price_clip": 0.01
+  }
+}
